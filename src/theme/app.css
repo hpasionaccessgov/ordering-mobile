@@ -1,0 +1,134 @@
+.cafebara-toolbar {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
+}
+
+.cafebara-mark {
+  font-size: 24px;
+  margin-inline-start: 12px;
+}
+
+.cafebara-intro,
+.cafebara-auth-panel,
+.cafebara-detail,
+.cafebara-order-detail,
+.cafebara-checkout {
+  max-width: 620px;
+  margin: 0 auto 20px;
+}
+
+.cafebara-intro h1,
+.cafebara-auth-panel h1,
+.cafebara-detail h1,
+.cafebara-order-detail h1,
+.cafebara-checkout h1 {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.cafebara-auth {
+  display: flex;
+  align-items: center;
+}
+
+.cafebara-auth-panel {
+  width: 100%;
+  padding: 24px;
+  border-radius: 18px;
+  background: var(--ion-color-secondary);
+}
+
+.cafebara-field {
+  --background: transparent;
+  margin-bottom: 8px;
+}
+
+.cafebara-product-card {
+  margin: 0 0 14px;
+  border-radius: 16px;
+}
+
+.cafebara-product-image,
+.cafebara-detail-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.cafebara-detail-image {
+  height: 240px;
+  border-radius: 14px;
+}
+
+.cafebara-product-row,
+.cafebara-order-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.cafebara-product-row p,
+.cafebara-order-row p {
+  margin: 4px 0 12px;
+}
+
+.cafebara-price {
+  color: var(--ion-color-primary);
+  margin: 12px 0 20px;
+}
+
+.cafebara-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 48px 16px;
+  text-align: center;
+}
+
+.cafebara-qty {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.cafebara-qty span {
+  min-width: 22px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.cafebara-total {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 4px;
+}
+
+.cafebara-total h2 {
+  color: var(--ion-color-primary);
+  margin: 2px 0 0;
+}
+
+.cafebara-timeline .is-reached {
+  --background: rgba(var(--ion-color-primary-rgb), 0.08);
+}
+
+.cafebara-checkout-lines,
+.cafebara-order-actions {
+  margin: 16px 0;
+}
+
+.cafebara-checkout-line {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  padding: 8px 2px;
+  border-bottom: 1px solid rgba(var(--ion-text-color-rgb), 0.12);
+}
+
+.cafebara-order-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
