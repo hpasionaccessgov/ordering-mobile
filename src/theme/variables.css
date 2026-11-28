@@ -1,14 +1,24 @@
 :root {
-  --ion-color-primary: #89431c;
+  /* Cafébara web palette (web/css/cafebara-theme.css). */
+  --cafebara-brown: #89431c;
+  --cafebara-brown-rgb: 137, 67, 28;
+  --cafebara-cream: #f8e6cb;
+  --cafebara-dark: #301206;
+  --cafebara-surface: #fffaf5;
+  --cafebara-surface-raised: #f5ede6;
+  --cafebara-border: rgba(72, 39, 22, 0.14);
+  --cafebara-muted: #745f52;
+
+  --ion-color-primary: var(--cafebara-brown);
   --ion-color-primary-rgb: 137, 67, 28;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
   --ion-color-primary-shade: #793b19;
   --ion-color-primary-tint: #955633;
 
-  --ion-color-secondary: #f8e6cb;
+  --ion-color-secondary: var(--cafebara-cream);
   --ion-color-secondary-rgb: 248, 230, 203;
-  --ion-color-secondary-contrast: #301206;
+  --ion-color-secondary-contrast: var(--cafebara-dark);
   --ion-color-secondary-contrast-rgb: 48, 18, 6;
   --ion-color-secondary-shade: #dacab2;
   --ion-color-secondary-tint: #f9e9d1;
@@ -20,21 +30,26 @@
   --ion-color-tertiary-shade: #b07a41;
   --ion-color-tertiary-tint: #ce975c;
 
-  --ion-background-color: #fffaf3;
-  --ion-background-color-rgb: 255, 250, 243;
-  --ion-text-color: #301206;
-  --ion-text-color-rgb: 48, 18, 6;
+  --ion-background-color: #fbf8f4;
+  --ion-background-color-rgb: 251, 248, 244;
+  --ion-text-color: #2f211a;
+  --ion-text-color-rgb: 47, 33, 26;
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    --ion-background-color: #1c120c;
-    --ion-background-color-rgb: 28, 18, 12;
-    --ion-text-color: #fcebd6;
-    --ion-text-color-rgb: 252, 235, 214;
+    --cafebara-surface: #21130d;
+    --cafebara-surface-raised: #2b1a12;
+    --cafebara-border: rgba(248, 230, 203, 0.14);
+    --cafebara-muted: #c9b8aa;
+
+    --ion-background-color: #160d09;
+    --ion-background-color-rgb: 22, 13, 9;
+    --ion-text-color: #f8eee4;
+    --ion-text-color-rgb: 248, 238, 228;
     --ion-color-secondary: #5a3520;
     --ion-color-secondary-rgb: 90, 53, 32;
-    --ion-color-secondary-contrast: #fcebd6;
-    --ion-color-secondary-contrast-rgb: 252, 235, 214;
+    --ion-color-secondary-contrast: #f8eee4;
+    --ion-color-secondary-contrast-rgb: 248, 238, 228;
   }
 }

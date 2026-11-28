@@ -7,6 +7,19 @@ const fallbackBase = Capacitor.isNativePlatform() ? 'http://10.0.2.2:8080/api' :
 
 export const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? fallbackBase).replace(/\/$/, '');
 
+const API_ORIGIN = new URL(API_BASE_URL).origin;
+
+// Backend image URLs are web-root relative, so the SPA must resolve them against the API host.
+export function assetUrl(path: string | null | undefined): string | null {
+  if (!path) {
+    return null;
+  }
+  if (/^https?:\/\//i.test(path)) {
+    return path;
+  }
+  return `${API_ORIGIN}${path.startsWith('/') ? '' : '/'}${path}`;
+}
+
 export class ApiError extends Error {
   constructor(
     public readonly status: number,

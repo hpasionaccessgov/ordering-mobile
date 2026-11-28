@@ -18,12 +18,15 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import Account from './pages/Account';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
+import Favorites from './pages/Favorites';
 import Login from './pages/Login';
+import Notifications from './pages/Notifications';
 import OrderDetail from './pages/OrderDetail';
 import Orders from './pages/Orders';
 import ProductDetail from './pages/ProductDetail';
 import Products from './pages/Products';
 import Register from './pages/Register';
+import Rewards from './pages/Rewards';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -70,6 +73,9 @@ function ProtectedTabs() {
             <Route path="/orders" element={<Orders />} />
             <Route path="/orders/:id" element={<OrderDetail />} />
             <Route path="/account" element={<Account />} />
+            <Route path="/rewards" element={<Rewards />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/notifications" element={<Notifications />} />
             <Route path="/" element={<Navigate to="/products" replace />} />
           </Routes>
         </IonRouterOutlet>

@@ -30,7 +30,8 @@ unreachable.
 ## Contract
 
 - Public: `/login`, `/register`.
-- Protected: `/products`, `/products/:id`, `/cart`, `/checkout`, `/orders`, `/orders/:id`, `/account`.
+- Protected: `/products`, `/products/:id`, `/cart`, `/checkout`, `/orders`, `/orders/:id`, `/account`,
+  `/rewards`, `/favorites`, `/notifications`.
 - `/` redirects to `/products`; `/*` renders `ProtectedTabs` inside `RequireAuth`.
 - `RequireAuth` shows `LoadingState` until `AuthProvider.ready`, then redirects to `/login`.
 - Tabs: Menu (`/products`), Cart, Orders, Account; icons are ionicons named exports.
@@ -49,4 +50,5 @@ unreachable.
 
 ## Changelog
 
+- 2026-11-28 (feat, local): customer screens had no routes -> added rewards, favorites and notifications. Test: App
 - 2026-11-28 (docs, initial): fixed route table, auth gate and React Router wrapper contract. Test: App

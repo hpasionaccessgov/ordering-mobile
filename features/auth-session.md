@@ -58,7 +58,7 @@ Backend equivalents: `POST /api/register`, `POST /api/login`, `GET /api/profile`
 - Entry: `Login`, `Register`, `Account` in `src/pages/`.
 - Logic: `useAuth` → `signIn`, `signUp`, `signOut` in `AuthContext`; `authService` functions; `tokenStorage`.
 - Data: `cafebara.auth.token` in Capacitor Preferences; `UserProfile` from `GET /profile`.
-- Presentation: `AppHeader`, `IonItem`/`IonInput` fields, `useIonToast` for errors.
+- Presentation: `AppHeader`, `cafebara-auth-brand` logo panel, `IonItem`/`IonInput` fields, `useIonToast` for errors.
 - Config: `VITE_API_BASE_URL` via `hub-api-client`.
 
 ## Flow
@@ -79,6 +79,7 @@ Backend equivalents: `POST /api/register`, `POST /api/login`, `GET /api/profile`
 - `RegisterPayload` uses camelCase field names; backend form rules expect exactly those names.
 - `ready` gates `RequireAuth`; rendering protected screens before it causes a login flicker.
 - The unauthorized event listener is removed on unmount; it is registered inside `AuthProvider`.
+- The auth logo uses `/Cafebara_logo-320.png`; it is decorative branding, not a click target.
 
 ## Tests
 
@@ -87,4 +88,5 @@ persistence, 401 cleanup or the register payload yet — add `src/context/AuthCo
 
 ## Changelog
 
+- 2026-11-28 (refactor, local): auth forms lacked the web brand identity -> added logo panel and separated form card. Test: Login
 - 2026-11-28 (docs, initial): captured auth flow and 401 event contract. Test: AuthProvider

@@ -15,7 +15,8 @@ depends on or feeds; the reason for each link, entry points, flow, tests and got
 ## catalog
 | slug | summary | links |
 |---|---|---|
-| catalog-browse | Product list and detail screens load the active Cafébara menu from the public REST API. | cart-manage |
+| catalog-browse | Menu and detail load the active Cafébara catalog, with heart and review controls. | cart-manage, favorites-manage, reviews-rate |
+| menu-highlights | Menu shows today's specials, featured items and ranked best sellers above the full list. | catalog-browse, hub-best-sellers |
 
 ## cart
 | slug | summary | links |
@@ -31,13 +32,18 @@ depends on or feeds; the reason for each link, entry points, flow, tests and got
 ## account
 | slug | summary | links |
 |---|---|---|
+| customer-dashboard | Account screen shows spend, favorites and loyalty KPIs with quick links to customer services. | loyalty-rewards, favorites-manage, notifications-inbox |
+| favorites-manage | Favorites screen and product heart let customers save products and remove saved ones. | catalog-browse, customer-dashboard |
+| loyalty-rewards | Rewards screen shows tier progress and points, redeems treats and lists the loyalty ledger. | customer-dashboard, order-tracking |
+| notifications-inbox | Inbox lists customer notifications with unread count, mark-read and delete actions. | customer-dashboard |
+| reviews-rate | Product detail shows ratings and lets customers review products from completed orders. | catalog-browse, order-tracking |
 
 ## shared (hubs)
 | slug | file | contract |
 |---|---|---|
 | hub-api-client | features/hub-api-client.md | One fetch wrapper adds bearer tokens, unwraps the success envelope and normalizes errors. |
 | hub-app-routing | features/hub-app-routing.md | Route table, auth gate and bottom tabs live in one file; every screen path is declared there. |
-| hub-theme | features/hub-theme.md | Ionic color variables and cafebara-* layout classes define the shared look in two CSS files. |
+| hub-theme | features/hub-theme.md | Ionic tokens, brand logo, Android icons and cafebara-* classes mirror the web look. |
 | hub-ui-components | features/hub-ui-components.md | Shared header, state views, product card and status badge give every screen one visual contract. |
 
 ## Aliases

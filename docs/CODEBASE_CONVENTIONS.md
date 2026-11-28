@@ -45,7 +45,10 @@ backend owns all business rules.
 
 - Reuse `AppHeader`, `StateViews`, `ProductCard`, `StatusBadge` before creating a component.
 - `IonItem` has no `fill` prop; put `fill="outline"` on `IonInput` instead.
-- Theme tokens live in `src/theme/variables.css` (Cafébara brown/cream); screen layout in `app.css`.
+- Theme tokens live in `src/theme/variables.css` (Cafébara brown/cream, mirrored from the web app's
+  `web/css/cafebara-theme.css`); screen layout in `app.css`.
+- Brand asset is `public/Cafebara_logo.png`; screens use the smaller derived `/Cafebara_logo-320.png`.
+  Keep both in sync if the logo changes.
 - Prefer Ionic components and CSS variables over custom CSS.
 
 ## Navigation
@@ -57,6 +60,7 @@ backend owns all business rules.
 ## Native
 
 - Change `capacitor.config.ts` → `npm run build` → `npx cap sync android`.
+- Launcher and splash PNGs in `android/app/src/main/res/` are generated from `public/Cafebara_logo.png`; regenerate them when the logo changes.
 - `android/gradle.properties` pins JDK 21 (Capacitor 8 requirement); `android/local.properties` points at the local SDK.
 - Do not hand-edit `android/app/src/main/assets/public/` — `cap sync` overwrites it.
 - `cafebara/` is a separate user repo; never reformat or overwrite it.

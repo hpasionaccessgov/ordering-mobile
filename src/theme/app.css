@@ -1,51 +1,131 @@
 .cafebara-toolbar {
-  --background: var(--ion-color-primary);
-  --color: var(--ion-color-primary-contrast);
+  --background: var(--cafebara-cream);
+  --color: var(--cafebara-dark);
+  --border-color: var(--cafebara-border);
+  box-shadow: 0 4px 20px rgba(48, 18, 6, 0.08);
 }
 
-.cafebara-mark {
-  font-size: 24px;
-  margin-inline-start: 12px;
+.cafebara-brand-logo {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin-inline-start: 4px;
+  object-fit: contain;
+}
+
+.cafebara-brand-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  margin-inline-start: 8px;
+}
+
+.cafebara-brand-name {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.cafebara-brand-caption {
+  color: var(--cafebara-muted);
+  font-size: 10px;
 }
 
 .cafebara-intro,
-.cafebara-auth-panel,
 .cafebara-detail,
 .cafebara-order-detail,
 .cafebara-checkout {
   max-width: 620px;
-  margin: 0 auto 20px;
+  margin: 0 auto 16px;
+  padding: 18px 20px;
+  border: 1px solid var(--cafebara-border);
+  border-radius: 16px;
+  background: var(--cafebara-surface);
 }
 
 .cafebara-intro h1,
-.cafebara-auth-panel h1,
 .cafebara-detail h1,
 .cafebara-order-detail h1,
 .cafebara-checkout h1 {
   font-weight: 700;
-  margin-bottom: 6px;
+  margin: 0 0 4px;
+}
+
+.cafebara-intro p,
+.cafebara-detail p,
+.cafebara-order-detail p,
+.cafebara-checkout p {
+  color: var(--cafebara-muted);
+  margin: 0;
+}
+
+.cafebara-kicker {
+  color: var(--ion-color-primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .cafebara-auth {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .cafebara-auth-panel {
   width: 100%;
-  padding: 24px;
-  border-radius: 18px;
-  background: var(--ion-color-secondary);
+  max-width: 620px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  border: 1px solid var(--cafebara-border);
+  border-radius: 20px;
+  background: var(--cafebara-surface);
+  box-shadow: 0 12px 30px rgba(48, 18, 6, 0.12);
+}
+
+.cafebara-auth-brand {
+  padding: 26px 20px 22px;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #301206, #89431c 62%, #b66a35);
+}
+
+.cafebara-auth-logo {
+  display: block;
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 10px;
+  object-fit: contain;
+  filter: drop-shadow(0 0.6rem 0.8rem rgba(0, 0, 0, 0.28));
+}
+
+.cafebara-auth-brand h1 {
+  color: #fff;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.cafebara-auth-brand p {
+  color: rgba(255, 255, 255, 0.84);
+  margin: 0;
+}
+
+.cafebara-auth-form {
+  padding: 20px;
 }
 
 .cafebara-field {
-  --background: transparent;
-  margin-bottom: 8px;
+  --background: var(--cafebara-surface-raised);
+  --border-color: var(--cafebara-border);
+  margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .cafebara-product-card {
   margin: 0 0 14px;
+  border: 1px solid var(--cafebara-border);
   border-radius: 16px;
+  --background: var(--cafebara-surface);
+  box-shadow: 0 6px 18px rgba(48, 18, 6, 0.06);
 }
 
 .cafebara-product-image,
@@ -84,6 +164,7 @@
   align-items: center;
   gap: 12px;
   padding: 48px 16px;
+  color: var(--cafebara-muted);
   text-align: center;
 }
 
@@ -124,11 +205,339 @@
   grid-template-columns: 1fr auto auto;
   gap: 12px;
   padding: 8px 2px;
-  border-bottom: 1px solid rgba(var(--ion-text-color-rgb), 0.12);
+  border-bottom: 1px solid var(--cafebara-border);
 }
 
 .cafebara-order-actions {
   display: flex;
   gap: 10px;
   justify-content: center;
+}
+
+ion-tab-bar {
+  --background: var(--cafebara-cream);
+  --border: 1px solid var(--cafebara-border);
+  --color: var(--cafebara-muted);
+  --color-selected: var(--ion-color-primary);
+}
+
+.cafebara-product-card h3,
+.cafebara-order-row h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.cafebara-price {
+  font-size: 22px;
+}
+
+.cafebara-product-card ion-button,
+.cafebara-detail ion-button,
+.cafebara-checkout ion-button,
+.cafebara-order-actions ion-button,
+.cafebara-state ion-button {
+  --border-radius: 12px;
+  --box-shadow: none;
+  font-weight: 600;
+}
+
+.cafebara-cart-list,
+.cafebara-order-list,
+.cafebara-timeline,
+.cafebara-order-detail ion-list {
+  --background: transparent;
+  background: transparent;
+}
+
+.cafebara-cart-list ion-item,
+.cafebara-order-detail ion-item {
+  --background: var(--cafebara-surface);
+  --border-color: var(--cafebara-border);
+  --padding-start: 14px;
+  --inner-padding-end: 12px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+}
+
+.cafebara-order-list ion-card {
+  --background: var(--cafebara-surface);
+  margin: 0 0 12px;
+  border: 1px solid var(--cafebara-border);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(48, 18, 6, 0.06);
+}
+
+.cafebara-order-list ion-card-content {
+  padding: 16px;
+}
+
+.cafebara-timeline ion-item {
+  --padding-start: 8px;
+  border-radius: 10px;
+}
+
+.cafebara-timeline ion-item.is-reached {
+  --background: rgba(var(--ion-color-primary-rgb), 0.08);
+  color: var(--ion-color-primary);
+  font-weight: 600;
+}
+
+.cafebara-order-detail h3,
+.cafebara-checkout h3 {
+  margin: 20px 0 8px;
+  color: var(--cafebara-muted);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cafebara-total {
+  border-top: 1px solid var(--cafebara-border);
+}
+
+.cafebara-state {
+  max-width: 620px;
+  margin: 16px auto;
+  border: 1px solid var(--cafebara-border);
+  border-radius: 16px;
+  background: var(--cafebara-surface);
+}
+
+.cafebara-state::before {
+  display: block;
+  width: 56px;
+  height: 56px;
+  background: url('/Cafebara_logo-320.png') center / contain no-repeat;
+  content: '';
+  opacity: 0.7;
+}
+
+.cafebara-qty ion-button {
+  --background: var(--cafebara-surface-raised);
+  --border-radius: 50%;
+  --color: var(--ion-color-primary);
+  --padding-start: 0;
+  --padding-end: 0;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+}
+
+.cafebara-qty ion-button[color='danger'] {
+  --color: var(--ion-color-danger);
+}
+
+.cafebara-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.cafebara-kpi-card {
+  position: relative;
+  min-height: 118px;
+  padding: 14px;
+  border: 1px solid var(--cafebara-border);
+  border-radius: 16px;
+  background: var(--cafebara-surface);
+  box-shadow: 0 6px 18px rgba(48, 18, 6, 0.06);
+}
+
+.cafebara-kpi-card ion-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: var(--ion-color-primary);
+  font-size: 22px;
+  opacity: 0.6;
+}
+
+.cafebara-kpi-card span,
+.cafebara-kpi-card small {
+  display: block;
+  color: var(--cafebara-muted);
+  font-size: 12px;
+}
+
+.cafebara-kpi-card strong {
+  display: block;
+  margin: 8px 0 4px;
+  overflow: hidden;
+  font-size: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cafebara-panel {
+  margin-bottom: 18px;
+  padding: 16px;
+  border: 1px solid var(--cafebara-border);
+  border-radius: 16px;
+  background: var(--cafebara-surface);
+}
+
+.cafebara-progress-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cafebara-progress-panel ion-progress-bar {
+  height: 10px;
+  border-radius: 8px;
+  --background: var(--cafebara-surface-raised);
+}
+
+.cafebara-progress-panel small {
+  display: block;
+  margin-top: 8px;
+}
+
+.cafebara-reward-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 14px;
+  color: var(--cafebara-muted);
+  font-size: 12px;
+}
+
+.cafebara-section-title {
+  margin: 20px 0 10px;
+  color: var(--cafebara-muted);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cafebara-quick-links,
+.cafebara-ledger,
+.cafebara-notification-list,
+.cafebara-favorite-list,
+.cafebara-review-list {
+  --background: transparent;
+  background: transparent;
+}
+
+.cafebara-quick-links ion-item,
+.cafebara-ledger ion-item,
+.cafebara-notification-list ion-item,
+.cafebara-favorite-list ion-item,
+.cafebara-review-list ion-item {
+  --background: var(--cafebara-surface);
+  --border-color: var(--cafebara-border);
+  --padding-start: 14px;
+  --inner-padding-end: 12px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+}
+
+.cafebara-notification-list ion-item.is-unread {
+  --background: rgba(var(--ion-color-primary-rgb), 0.08);
+}
+
+.cafebara-reward-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.cafebara-reward-card {
+  --background: var(--cafebara-surface);
+  margin: 0;
+  border: 1px solid var(--cafebara-border);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(48, 18, 6, 0.06);
+}
+
+.cafebara-reward-card h3 {
+  margin: 6px 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.cafebara-reward-card p {
+  min-height: 32px;
+}
+
+.cafebara-reward-card ion-button {
+  margin-top: 10px;
+}
+
+.cafebara-detail-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cafebara-reviews {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--cafebara-border);
+}
+
+.cafebara-reviews h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.cafebara-review-form {
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px solid var(--cafebara-border);
+  border-radius: 16px;
+  background: var(--cafebara-surface);
+}
+
+.cafebara-review-form ion-textarea {
+  margin: 10px 0;
+  border: 1px solid var(--cafebara-border);
+  border-radius: 12px;
+}
+
+.cafebara-product-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cafebara-highlight-section {
+  margin-bottom: 8px;
+}
+
+.cafebara-highlight-strip {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+}
+
+.cafebara-highlight-strip .cafebara-product-card {
+  flex: 0 0 220px;
+  scroll-snap-align: start;
+}
+
+.cafebara-best-sellers {
+  --background: transparent;
+  background: transparent;
+}
+
+.cafebara-best-sellers ion-item {
+  --background: var(--cafebara-surface);
+  --border-color: var(--cafebara-border);
+  --padding-start: 12px;
+  --inner-padding-end: 12px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+}
+
+.cafebara-rank {
+  min-width: 32px;
+  color: var(--ion-color-primary);
+  font-size: 14px;
+  font-weight: 700;
 }

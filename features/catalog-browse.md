@@ -18,6 +18,8 @@ data: []
 config: []
 connections:
   - cart-manage: product cards and detail call addToCart
+  - favorites-manage: sub-feature: menu heart and detail heart toggle a favorite.
+  - reviews-rate: sub-feature: detail screen owns the review section.
 hubs:
   - hub-api-client: listProducts/getProduct unwrap the envelope and pagination meta
   - hub-ui-components: ProductCard and StateViews render every item and state
@@ -28,9 +30,9 @@ updated: 2026-11-28
 
 ## Summary
 
-Menu screen lists active products with price, image and an Add action. Tapping a card opens product
-detail with a larger image and a direct link to the cart. Both screens read public endpoints; no
-login is needed to browse.
+Menu screen lists active products with price, image, favorite heart and an Add action. Tapping a card
+opens product detail with a larger image, a heart and ratings. Product data is public; the heart and
+review sections call bearer endpoints.
 
 ## Example use
 
@@ -72,14 +74,18 @@ npm run test:unit -- src/App.test.tsx
 - Backend clamps `per-page`; the client requests only `page` and does not implement infinite scroll.
 - `meta.pagination.current_page` is one-based while the query parameter is zero-based.
 - `image_url` may be null; both screens omit the image element in that case.
+- `image_url` is web-root relative; pass it through `assetUrl` before using it as an `IonImg` source.
 - `description` may be null; render it directly inside `IonText` only.
 - Product `status` is numeric and the backend filters inactive rows; the app does not re-filter.
 
 ## Tests
 
-`npm run test:unit -- src/App.test.tsx` proves the shell renders only. No service or screen test yet
-for pagination, retry or Add-to-cart; add `src/services/catalogService.test.ts`.
+`npm run test:unit -- src/App.test.tsx` proves the shell renders only; `src/services/catalogService.test.ts`
+covers the public catalog calls. Pagination, retry and Add-to-cart still have no screen test.
 
 ## Changelog
 
+- 2026-11-28 (fix, local): product images failed in the browser -> detail used a backend-relative path as-is -> rendered through assetUrl. Test: assetUrl
+- 2026-11-28 (feat, local): menu had no web-style highlights -> no public source for flags and sales -> added specials, featured and best-seller sections above the list. Test: getHighlights
+- 2026-11-28 (feat, local): menu had no favorite or rating controls -> added heart and review section to the catalog screens. Test: ProductDetail
 - 2026-11-28 (docs, initial): mapped public catalog screens and pagination caveat. Test: Products.load

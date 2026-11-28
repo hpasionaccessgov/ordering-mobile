@@ -1,21 +1,21 @@
 {
-  "short_name": "Ionic App",
-  "name": "My Ionic App",
+  "short_name": "Cafébara",
+  "name": "Cafébara ordering",
   "icons": [
     {
-      "src": "assets/icon/favicon.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "/Cafebara_logo-320.png",
+      "sizes": "320x320",
+      "type": "image/png"
     },
     {
-      "src": "assets/icon/icon.png",
-      "type": "image/png",
+      "src": "/Cafebara_logo-512.png",
       "sizes": "512x512",
-      "purpose": "maskable"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff"
+  "theme_color": "#89431c",
+  "background_color": "#fbf8f4"
 }

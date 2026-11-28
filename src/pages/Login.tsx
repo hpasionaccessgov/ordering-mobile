@@ -1,4 +1,14 @@
-import { IonButton, IonContent, IonInput, IonItem, IonLabel, IonPage, IonText, useIonToast } from '@ionic/react';
+import {
+  IonButton,
+  IonContent,
+  IonImg,
+  IonInput,
+  IonItem,
+  IonLabel,
+  IonPage,
+  IonText,
+  useIonToast,
+} from '@ionic/react';
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 
@@ -39,35 +49,40 @@ export default function Login(): React.JSX.Element {
       <AppHeader title="Sign in" />
       <IonContent className="ion-padding cafebara-auth">
         <div className="cafebara-auth-panel">
-          <IonText>
-            <h1>Welcome back</h1>
-            <p>Sign in to order your Cafébara favorites.</p>
-          </IonText>
-          <IonItem className="cafebara-field">
-            <IonLabel position="stacked">Username</IonLabel>
-            <IonInput
-              fill="outline"
-              value={username}
-              autocomplete="username"
-              onIonInput={(event) => setUsername(event.detail.value ?? '')}
-            />
-          </IonItem>
-          <IonItem className="cafebara-field">
-            <IonLabel position="stacked">Password</IonLabel>
-            <IonInput
-              fill="outline"
-              type="password"
-              value={password}
-              autocomplete="current-password"
-              onIonInput={(event) => setPassword(event.detail.value ?? '')}
-            />
-          </IonItem>
-          <IonButton expand="block" disabled={busy} onClick={() => void submit()}>
-            {busy ? 'Signing in…' : 'Sign in'}
-          </IonButton>
-          <IonButton expand="block" fill="clear" routerLink="/register">
-            Create an account
-          </IonButton>
+          <div className="cafebara-auth-brand">
+            <IonImg className="cafebara-auth-logo" src="/Cafebara_logo-320.png" alt="Cafébara" />
+            <IonText>
+              <h1>Welcome back</h1>
+              <p>Sign in to order your Cafébara favorites.</p>
+            </IonText>
+          </div>
+          <div className="cafebara-auth-form">
+            <IonItem className="cafebara-field">
+              <IonLabel position="stacked">Username</IonLabel>
+              <IonInput
+                fill="outline"
+                value={username}
+                autocomplete="username"
+                onIonInput={(event) => setUsername(event.detail.value ?? '')}
+              />
+            </IonItem>
+            <IonItem className="cafebara-field">
+              <IonLabel position="stacked">Password</IonLabel>
+              <IonInput
+                fill="outline"
+                type="password"
+                value={password}
+                autocomplete="current-password"
+                onIonInput={(event) => setPassword(event.detail.value ?? '')}
+              />
+            </IonItem>
+            <IonButton expand="block" disabled={busy} onClick={() => void submit()}>
+              {busy ? 'Signing in…' : 'Sign in'}
+            </IonButton>
+            <IonButton expand="block" fill="clear" routerLink="/register">
+              Create an account
+            </IonButton>
+          </div>
         </div>
       </IonContent>
     </IonPage>

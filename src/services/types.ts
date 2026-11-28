@@ -40,6 +40,18 @@ export interface Product {
   image_url: string | null;
 }
 
+export interface BestSeller {
+  product_id: number;
+  product_name: string;
+  quantity: number;
+}
+
+export interface ProductHighlights {
+  special_products: Product[];
+  featured_products: Product[];
+  best_sellers: BestSeller[];
+}
+
 export interface CartLine {
   product: Pick<Product, 'id' | 'name' | 'price'>;
   quantity: number;
@@ -85,3 +97,93 @@ export const STATUS_LABELS: Record<OrderStatus, string> = {
   completed: 'Completed',
   cancelled: 'Cancelled',
 };
+
+export interface CustomerSummary {
+  order_count: number;
+  total_spent: string;
+  favorite_count: number;
+  favorite_product: Pick<Product, 'id' | 'name' | 'price'> | null;
+}
+
+export interface LoyaltySummary {
+  current: number;
+  lifetimeEarned: number;
+  lifetimeRedeemed: number;
+  tier: string;
+  tier_label: string;
+}
+
+export interface LoyaltyTransaction {
+  id: number;
+  order_id: number | null;
+  points: number;
+  transaction_type: string;
+  remarks: string | null;
+  created_at: number;
+  typeLabel: string;
+}
+
+export interface RedeemedReward extends LoyaltyTransaction {
+  order_number: string | null;
+}
+
+export interface Reward {
+  id: number;
+  name: string;
+  description: string | null;
+  point_cost: number;
+  product_id: number;
+  product_name: string | null;
+}
+
+export interface AppNotification {
+  id: number;
+  type: string;
+  status: number;
+  message: string;
+  target_route: string | null;
+  target_id: number | null;
+  category: string;
+  created_at: number;
+  read_at: number | null;
+  label: string;
+  categoryLabel: string;
+  targetUrl: string | null;
+}
+
+export interface Favorite {
+  id: number;
+  product_id: number;
+  product: Pick<Product, 'id' | 'name' | 'price'> | null;
+}
+
+export interface Review {
+  id: number;
+  rating: number;
+  review: string;
+  created_at: number;
+}
+
+export interface ReviewSummary {
+  average: number;
+  count: number;
+}
+
+export interface EligibleOrder {
+  id: number;
+  order_number: string;
+}
+
+export interface ReviewList {
+  product_id: number;
+  reviews: Review[];
+  summary: ReviewSummary;
+  eligible_orders: EligibleOrder[];
+}
+
+export interface ReviewInput {
+  product_id: number;
+  order_id: number;
+  rating: number;
+  review: string;
+}

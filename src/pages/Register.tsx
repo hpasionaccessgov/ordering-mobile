@@ -1,4 +1,14 @@
-import { IonButton, IonContent, IonInput, IonItem, IonLabel, IonPage, IonText, useIonToast } from '@ionic/react';
+import {
+  IonButton,
+  IonContent,
+  IonImg,
+  IonInput,
+  IonItem,
+  IonLabel,
+  IonPage,
+  IonText,
+  useIonToast,
+} from '@ionic/react';
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 
@@ -64,29 +74,34 @@ export default function Register(): React.JSX.Element {
       <AppHeader title="Create account" />
       <IonContent className="ion-padding cafebara-auth">
         <div className="cafebara-auth-panel">
-          <IonText>
-            <h1>Join Cafébara</h1>
-            <p>Track orders and collect loyalty points.</p>
-          </IonText>
-          {(Object.keys(EMPTY) as (keyof FormState)[]).map((key) => (
-            <IonItem className="cafebara-field" key={key}>
-              <IonLabel position="stacked">
-                {key === 'passwordConfirm' ? 'Confirm password' : key.replace(/([A-Z])/g, ' $1')}
-              </IonLabel>
-              <IonInput
-                fill="outline"
-                type={key.includes('password') ? 'password' : key === 'email' ? 'email' : 'text'}
-                value={form[key]}
-                onIonInput={(event) => update(key, event.detail.value ?? '')}
-              />
-            </IonItem>
-          ))}
-          <IonButton expand="block" disabled={busy} onClick={() => void submit()}>
-            {busy ? 'Creating account…' : 'Create account'}
-          </IonButton>
-          <IonButton expand="block" fill="clear" routerLink="/login">
-            Back to sign in
-          </IonButton>
+          <div className="cafebara-auth-brand">
+            <IonImg className="cafebara-auth-logo" src="/Cafebara_logo-320.png" alt="Cafébara" />
+            <IonText>
+              <h1>Join Cafébara</h1>
+              <p>Track orders and collect loyalty points.</p>
+            </IonText>
+          </div>
+          <div className="cafebara-auth-form">
+            {(Object.keys(EMPTY) as (keyof FormState)[]).map((key) => (
+              <IonItem className="cafebara-field" key={key}>
+                <IonLabel position="stacked">
+                  {key === 'passwordConfirm' ? 'Confirm password' : key.replace(/([A-Z])/g, ' $1')}
+                </IonLabel>
+                <IonInput
+                  fill="outline"
+                  type={key.includes('password') ? 'password' : key === 'email' ? 'email' : 'text'}
+                  value={form[key]}
+                  onIonInput={(event) => update(key, event.detail.value ?? '')}
+                />
+              </IonItem>
+            ))}
+            <IonButton expand="block" disabled={busy} onClick={() => void submit()}>
+              {busy ? 'Creating account…' : 'Create account'}
+            </IonButton>
+            <IonButton expand="block" fill="clear" routerLink="/login">
+              Back to sign in
+            </IonButton>
+          </div>
         </div>
       </IonContent>
     </IonPage>

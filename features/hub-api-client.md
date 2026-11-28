@@ -14,6 +14,7 @@ files:
   - src/services/types.ts
 tests:
   - src/App.test.tsx
+  - src/services/api.test.ts
 data: []
 config: [VITE_API_BASE_URL]
 updated: 2026-11-28
@@ -47,7 +48,10 @@ Changing it affects every feature; a mistake here breaks auth, catalog, cart and
 - Android emulator uses `10.0.2.2`; physical devices need `VITE_API_BASE_URL` set to a LAN URL.
 - List `page` is zero-based; `meta.pagination.current_page` is one-based.
 - Prices are decimal strings; `OrderStatus` values come from `src/services/types.ts`.
+- `image_url` is web-root relative; `assetUrl` resolves it against the API origin before rendering.
 
 ## Changelog
 
+- 2026-11-28 (fix, local): seeded product images were broken in the browser -> `/product/image?id=1` resolved against the Ionic dev server -> added assetUrl to resolve relative image paths against the API origin. Test: assetUrl
+- 2026-11-28 (feat, local): catalog had no highlights call -> added public getHighlights to catalogService. Test: getHighlights
 - 2026-11-28 (docs, initial): recorded envelope, 401 event and base URL resolution. Test: request

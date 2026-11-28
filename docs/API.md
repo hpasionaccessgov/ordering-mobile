@@ -16,6 +16,10 @@ device needs `VITE_API_BASE_URL` set to a reachable LAN address; `10.0.2.2` only
 
 ## Envelope
 
+`ionic serve` runs on `http://localhost:8100` (Vite dev server); `npm run dev` uses `http://localhost:5173`.
+Both origins are allowlisted by the backend CORS filter. Add any other browser origin to
+`API_CORS_ORIGINS` in `ordering_system/.env` or the browser fetch will be blocked.
+
 Success: `{"success":true,"data":...,"meta":{"pagination":{...}}}`.
 Failure: `{"success":false,"error":{"code":"validation_failed","message":"...","errors":{"field":["..."]}}}`.
 `src/services/api.ts` throws `ApiError(status, code, message, errors)`; `firstError()` prefers the
